@@ -58,7 +58,7 @@ class CDBDriver {
   }
 
   _setAuthHeader(request) {
-    return request.setRequestHeader('Authorization',this._getAuthHeader());
+    request.setRequestHeader('Authorization',this._getAuthHeader());
   }
 
   _buildCURL(options) {
@@ -147,11 +147,11 @@ class CDBDriver {
         });
 
         req.open('GET',this.host);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.send();
       } else {
         req.open('GET',this.host,false);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.send();
 
         return {
@@ -196,11 +196,11 @@ class CDBDriver {
         })
 
         req.open('GET',this.host + '_all_dbs');
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.send();
       } else {
         req.open('GET',this.host + '_all_dbs', false);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.send();
 
         return {
@@ -234,11 +234,11 @@ class CDBDriver {
         })
 
         req.open('GET',this.host + dbIdentifier);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.send();
       } else {
         req.open('GET',this.host + dbIdentifier,false);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.send();
 
         return {
@@ -265,11 +265,11 @@ class CDBDriver {
         })
 
         req.open('PUT',this.host);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.send();
       } else {
         req.open('PUT',this.host + dbIdentifier,false);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.send();
 
         return {
@@ -296,11 +296,11 @@ class CDBDriver {
         })
 
         req.open('GET',this.host + dbIdentifier + '/_all_docs');
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.send();
       } else {
         req.open('GET',this.host + dbIdentifier + '/_all_docs',false);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.send();
 
         return {
@@ -329,12 +329,12 @@ class CDBDriver {
         })
 
         req.open('POST',this.host + dbIdentifier);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.setRequestHeader('Content-Type','application/json');
         req.send(JSON.stringify(data));
       } else {
         req.open('POST',this.host + dbIdentifier,false);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.setRequestHeader('Content-Type','application/json');
         req.send(JSON.stringify(data));
 
@@ -364,11 +364,11 @@ class CDBDriver {
         })
 
         req.open('GET',this.host + dbIdentifier + '/' + docIdentifier);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.send();
       } else {
         req.open('GET',this.host + dbIdentifier + '/' + docIdentifier,false);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.send();
 
         return {
@@ -399,11 +399,11 @@ class CDBDriver {
         })
 
         req.open('DELETE',this.host + dbIdentifier + '/' + docIdentifier + '?rev=' + docRevision);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.send();
       } else {
         req.open('DELETE',this.host + dbIdentifier + '/' + docIdentifier + '?rev=' + docRevision,false);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.send();
 
         return {
@@ -436,12 +436,12 @@ class CDBDriver {
         })
 
         req.open('PUT',this.host + dbIdentifier + '/' + docIdentifier + '?rev=' + docRevision);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.setRequestHeader('Content-Type','application/json');
         req.send(JSON.stringify(data));
       } else {
         req.open('PUT',this.host + dbIdentifier + '/' + docIdentifier + '?rev=' + docRevision,false);
-        if(this._auth) req = this._setAuthHeader(req);
+        if(this._auth) this._setAuthHeader(req);
         req.setRequestHeader('Content-Type','application/json');
         req.send(JSON.stringify(data));
 
