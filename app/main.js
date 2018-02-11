@@ -48,12 +48,10 @@ class CDBDriver {
         if(config.includes('@')) {
           this._auth = true;
           var tmp = config.split('@');
-
           var protocol = tmp[0].split('//')[0] + '//';
           var credentials = tmp[0].split('//')[1];
           this.user = credentials.split(':')[0];
           this.pass = credentials.split(':')[1];
-
           this.host = protocol + tmp[1].split(':')[0];
           this.port = parseInt(tmp[1].split(':')[1]);
         } else {
