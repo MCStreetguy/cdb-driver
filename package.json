@@ -4,7 +4,7 @@
   "description": "A driver library for connecting to a CouchDB instance through JavaScript.",
   "main": "app/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node tests/main.test.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "colors": "^1.1.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
     "gulp-notify": "^3.2.0",
