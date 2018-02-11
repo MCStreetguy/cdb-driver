@@ -624,8 +624,8 @@ cache-base@^1.0.1:
     unset-value "^1.0.0"
 
 caniuse-lite@^1.0.30000792:
-  version "1.0.30000807"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000807.tgz#51ea478d07269e9dd4d8c639509df61d2516fa92"
+  version "1.0.30000808"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000808.tgz#7d759b5518529ea08b6705a19e70dbf401628ffc"
 
 chalk@^1.0.0, chalk@^1.1.3:
   version "1.1.3"
@@ -1302,8 +1302,8 @@ isobject@^3.0.0, isobject@^3.0.1:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
 
 isset-helper@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/isset-helper/-/isset-helper-1.0.0.tgz#c8e174f7c28557863c523737f59c730eab93e213"
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/isset-helper/-/isset-helper-1.0.1.tgz#6a6497c755c940055b75a9cd41b668c9c1449a7d"
 
 js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"
