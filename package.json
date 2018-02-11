@@ -28,6 +28,7 @@
     "pump": "^3.0.0"
   },
   "dependencies": {
-    "Base64": "^1.0.1"
+    "Base64": "^1.0.1",
+    "isset-helper": "^1.0.0"
   }
 }
