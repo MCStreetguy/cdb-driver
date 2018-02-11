@@ -140,9 +140,15 @@ class CDBDriver {
       var req = new XMLHttpRequest();
       if(_isset(callback,'function')) {
         req.addEventListener('load',function (event) {
+          try {
+            var response = JSON.parse(req.response);
+          } catch (e) {
+            var response = req.response;
+          }
+
           callback({
             state: req.status,
-            response: req.response
+            response: response
           })
         });
 
@@ -154,9 +160,15 @@ class CDBDriver {
         if(this._auth) this._setAuthHeader(req);
         req.send();
 
+        try {
+          var response = JSON.parse(req.response);
+        } catch (e) {
+          var response = req.response;
+        }
+
         return {
           state: req.status,
-          response: req.response
+          response: response
         }
       }
     } else {
@@ -189,9 +201,15 @@ class CDBDriver {
       var req = new XMLHttpRequest();
       if(_isset(callback,'function')) {
         req.addEventListener('load',function (event) {
+          try {
+            var response = JSON.parse(req.response);
+          } catch (e) {
+            var response = req.response;
+          }
+
           callback({
             state: req.status,
-            response: req.response
+            response: response
           })
         })
 
@@ -203,9 +221,15 @@ class CDBDriver {
         if(this._auth) this._setAuthHeader(req);
         req.send();
 
+        try {
+          var response = JSON.parse(req.response);
+        } catch (e) {
+          var response = req.response;
+        }
+
         return {
           state: req.status,
-          response: req.response
+          response: response
         }
       }
     } else {
@@ -227,9 +251,15 @@ class CDBDriver {
       var req = new XMLHttpRequest();
       if(_isset(callback,'function')) {
         req.addEventListener('load',function (event) {
+          try {
+            var response = JSON.parse(req.response);
+          } catch (e) {
+            var response = req.response;
+          }
+
           callback({
             state: req.status,
-            response: req.response
+            response: response
           })
         })
 
@@ -241,9 +271,15 @@ class CDBDriver {
         if(this._auth) this._setAuthHeader(req);
         req.send();
 
+        try {
+          var response = JSON.parse(req.response);
+        } catch (e) {
+          var response = req.response;
+        }
+
         return {
           state: req.status,
-          response: req.response
+          response: response
         }
       }
     } else {}
@@ -258,9 +294,15 @@ class CDBDriver {
       var req = new XMLHttpRequest();
       if(_isset(callback,'function')) {
         req.addEventListener('load',function (event) {
+          try {
+            var response = JSON.parse(req.response);
+          } catch (e) {
+            var response = req.response;
+          }
+
           callback({
             state: req.status,
-            response: req.response
+            response: response
           })
         })
 
@@ -272,9 +314,15 @@ class CDBDriver {
         if(this._auth) this._setAuthHeader(req);
         req.send();
 
+        try {
+          var response = JSON.parse(req.response);
+        } catch (e) {
+          var response = req.response;
+        }
+
         return {
           state: req.status,
-          response: req.response
+          response: response
         }
       }
     } else {}
@@ -289,9 +337,15 @@ class CDBDriver {
       var req = new XMLHttpRequest();
       if(_isset(callback,'function')) {
         req.addEventListener('load',function (event) {
+          try {
+            var response = JSON.parse(req.response);
+          } catch (e) {
+            var response = req.response;
+          }
+
           callback({
             state: req.status,
-            response: req.response
+            response: response
           })
         })
 
@@ -303,9 +357,15 @@ class CDBDriver {
         if(this._auth) this._setAuthHeader(req);
         req.send();
 
+        try {
+          var response = JSON.parse(req.response);
+        } catch (e) {
+          var response = req.response;
+        }
+
         return {
           state: req.status,
-          response: req.response
+          response: response
         }
       }
     } else {}
@@ -322,9 +382,15 @@ class CDBDriver {
       var req = new XMLHttpRequest();
       if(_isset(callback,'function')) {
         req.addEventListener('load',function (event) {
+          try {
+            var response = JSON.parse(req.response);
+          } catch (e) {
+            var response = req.response;
+          }
+
           callback({
             state: req.status,
-            response: req.response
+            response: response
           })
         })
 
@@ -338,9 +404,15 @@ class CDBDriver {
         req.setRequestHeader('Content-Type','application/json');
         req.send(JSON.stringify(data));
 
+        try {
+          var response = JSON.parse(req.response);
+        } catch (e) {
+          var response = req.response;
+        }
+
         return {
           state: req.status,
-          response: req.response
+          response: response
         }
       }
     } else {}
@@ -357,9 +429,15 @@ class CDBDriver {
       var req = new XMLHttpRequest();
       if(_isset(callback,'function')) {
         req.addEventListener('load',function (event) {
+          try {
+            var response = JSON.parse(req.response);
+          } catch (e) {
+            var response = req.response;
+          }
+
           callback({
             state: req.status,
-            response: req.response
+            response: response
           })
         })
 
@@ -371,9 +449,15 @@ class CDBDriver {
         if(this._auth) this._setAuthHeader(req);
         req.send();
 
+        try {
+          var response = JSON.parse(req.response);
+        } catch (e) {
+          var response = req.response;
+        }
+
         return {
           state: req.status,
-          response: req.response
+          response: response
         }
       }
     } else {}
@@ -392,9 +476,15 @@ class CDBDriver {
       var req = new XMLHttpRequest();
       if(_isset(callback,'function')) {
         req.addEventListener('load',function (event) {
+          try {
+            var response = JSON.parse(req.response);
+          } catch (e) {
+            var response = req.response;
+          }
+
           callback({
             state: req.status,
-            response: req.response
+            response: response
           })
         })
 
@@ -406,9 +496,15 @@ class CDBDriver {
         if(this._auth) this._setAuthHeader(req);
         req.send();
 
+        try {
+          var response = JSON.parse(req.response);
+        } catch (e) {
+          var response = req.response;
+        }
+
         return {
           state: req.status,
-          response: req.response
+          response: response
         }
       }
     } else {}
@@ -429,9 +525,15 @@ class CDBDriver {
       var req = new XMLHttpRequest();
       if(_isset(callback,'function')) {
         req.addEventListener('load',function (event) {
+          try {
+            var response = JSON.parse(req.response);
+          } catch (e) {
+            var response = req.response;
+          }
+
           callback({
             state: req.status,
-            response: req.response
+            response: response
           })
         })
 
@@ -445,9 +547,15 @@ class CDBDriver {
         req.setRequestHeader('Content-Type','application/json');
         req.send(JSON.stringify(data));
 
+        try {
+          var response = JSON.parse(req.response);
+        } catch (e) {
+          var response = req.response;
+        }
+
         return {
           state: req.status,
-          resposne: req.response
+          resposne: response
         }
       }
     } else {}
