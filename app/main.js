@@ -6,10 +6,10 @@ class CDBDriver {
 
   constructor(config) {
     if(_isset(config,'object')) {
-      if(_isset(config.host,'string') && _isset(config.port,'number')) {
-        this.host = config.host + ':' + config.port;
+      if(_isset(config.host,'string')) {
+        this.host = config.host;
       } else {
-        throw new TypeError('CDBDriver configuration is missing required keys!');
+        throw new TypeError('CDBDriver configuration is missing required key: host!');
       }
 
       if(_isset(config.user,'string') && _isset(config.pass,'string')) {
