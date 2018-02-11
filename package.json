@@ -1,0 +1,29 @@
+{
+  "name": "cdb-driver",
+  "version": "0.0.0",
+  "description": "A driver library for connecting to a CouchDB instance through JavaScript.",
+  "main": "app/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MCStreetguy/cdb-driver.git"
+  },
+  "author": "Maximilian Schmidt <maximilianschmidt404@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MCStreetguy/cdb-driver/issues"
+  },
+  "homepage": "https://github.com/MCStreetguy/cdb-driver#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^3.0.0"
+  }
+}
