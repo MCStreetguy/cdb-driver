@@ -1,5 +1,5 @@
 // const ChildProcess = require('child_process');
-const { btoa } = require('Base64');
+const btoa = require('btoa');
 const _isset = require('isset-helper');
 
 class CDBDriver {
