@@ -314,11 +314,7 @@ class CDBDriver {
   storeDoc(dbIdentifier,data,callback) {
     if(!_isset(dbIdentifier,'string')) {
       throw new Error('CDBDriver.storeDoc() is missing required argument: dbIdentifier!');
-    }
-
-    if(_isset(data,'object')) {
-      data = JSON.stringify(data);
-    } else if(!_isset(data,'string')) {
+    } else if(!_isset(data,'object')) {
       throw new Error('CDBDriver.storeDoc() is missing required argument: data!');
     }
 
@@ -334,15 +330,124 @@ class CDBDriver {
 
         req.open('POST',this.host + dbIdentifier);
         if(this._auth) req = this._setAuthHeader(req);
-        req.send(data);
+        req.setRequestHeader('Content-Type','application/json');
+        req.send(JSON.stringify(data));
       } else {
         req.open('POST',this.host + dbIdentifier,false);
         if(this._auth) req = this._setAuthHeader(req);
-        req.send(data);
+        req.setRequestHeader('Content-Type','application/json');
+        req.send(JSON.stringify(data));
 
         return {
           state: req.status,
           response: req.response
+        }
+      }
+    } else {}
+  }
+
+  getDoc(dbIdentifier,docIdentifier,callback) {
+    if(!_isset(dbIdentifier,'string')) {
+      throw new Error('CDBDriver.getDoc() is missing required argument: dbIdentifier!');
+    } else if(!_isset(docIdentifier,'string')) {
+      throw new Error('CDBDriver.getDoc() is missing required argument: docIdentifier!');
+    }
+
+    if(this._mode == 'xhr') {
+      var req = new XMLHttpRequest();
+      if(_isset(callback,'function')) {
+        req.addEventListener('load',function (event) {
+          callback({
+            state: req.status,
+            response: req.response
+          })
+        })
+
+        req.open('GET',this.host + dbIdentifier + '/' + docIdentifier);
+        if(this._auth) req = this._setAuthHeader(req);
+        req.send();
+      } else {
+        req.open('GET',this.host + dbIdentifier + '/' + docIdentifier,false);
+        if(this._auth) req = this._setAuthHeader(req);
+        req.send();
+
+        return {
+          state: req.status,
+          response: req.response
+        }
+      }
+    } else {}
+  }
+
+  deleteDoc(dbIdentifier,docIdentifier,docRevision,callback) {
+    if(!_isset(dbIdentifier,'string')) {
+      throw new Error('CDBDriver.deleteDoc() is missing required argument: dbIdentifier!');
+    } else if(!_isset(docIdentifier,'string')) {
+      throw new Error('CDBDriver.deleteDoc() is missing required argument: docIdentifier!');
+    } else if(!_isset(docRevision,'string')) {
+      throw new Error('CDBDriver.deleteDoc() is missing required argument: docRevision!');
+    }
+
+    if(this._mode == 'xhr') {
+      var req = new XMLHttpRequest();
+      if(_isset(callback,'function')) {
+        req.addEventListener('load',function (event) {
+          callback({
+            state: req.status,
+            response: req.response
+          })
+        })
+
+        req.open('DELETE',this.host + dbIdentifier + '/' + docIdentifier + '?rev=' + docRevision);
+        if(this._auth) req = this._setAuthHeader(req);
+        req.send();
+      } else {
+        req.open('DELETE',this.host + dbIdentifier + '/' + docIdentifier + '?rev=' + docRevision,false);
+        if(this._auth) req = this._setAuthHeader(req);
+        req.send();
+
+        return {
+          state: req.status,
+          response: req.response
+        }
+      }
+    } else {}
+  }
+
+  updateDoc(dbIdentifier,docIdentifier,docRevision,data,callback) {
+    if(!_isset(dbIdentifier,'string')) {
+      throw new Error('CDBDriver.updateDoc() is missing required argument: dbIdentifier!');
+    } else if(!_isset(docIdentifier,'string')) {
+      throw new Error('CDBDriver.updateDoc() is missing required argument: docIdentifier!');
+    } else if(!_isset(docRevision,'string')) {
+      throw new Error('CDBDriver.updateDoc() is missing required argument: docRevision!');
+    } else if(!_isset(data,'object')) {
+      throw new Error('CDBDriver.updateDoc() is missing required argument: data!');
+    }
+
+    if(this._mode == 'xhr') {
+      var req = new XMLHttpRequest();
+      if(_isset(callback,'function')) {
+        req.addEventListener('load',function (event) {
+          callback({
+            state: req.status,
+            response: req.response
+          })
+        })
+
+        req.open('PUT',this.host + dbIdentifier + '/' + docIdentifier + '?rev=' + docRevision);
+        if(this._auth) req = this._setAuthHeader(req);
+        req.setRequestHeader('Content-Type','application/json');
+        req.send(JSON.stringify(data));
+      } else {
+        req.open('PUT',this.host + dbIdentifier + '/' + docIdentifier + '?rev=' + docRevision,false);
+        if(this._auth) req = this._setAuthHeader(req);
+        req.setRequestHeader('Content-Type','application/json');
+        req.send(JSON.stringify(data));
+
+        return {
+          state: req.status,
+          resposne: req.response
         }
       }
     } else {}
