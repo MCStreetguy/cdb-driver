@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+Base64@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/Base64/-/Base64-1.0.1.tgz#def45cc50c961bcc9bf2321d0f52bcbfec1f1bb1"
+
 ansi-colors@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-1.0.1.tgz#e94c6c306005af8b482240241e2f3dea4b855ff3"

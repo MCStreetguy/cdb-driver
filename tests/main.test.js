@@ -1,7 +1,11 @@
 const colors = require('colors');
 const CDBDriver = require('../app/main.js');
 
+const args = process.argv.slice(2);
+
 console.log('Invoking main test script...'.underline.bold.red);
+
+console.log('Testing construction...'.bold.green);
 
 // Config object, no auth
 console.log('Creating new CDBDriver using config object without authentication:'.yellow);
@@ -38,5 +42,14 @@ var driver_string_auth = new CDBDriver(
 );
 console.log(driver_string_auth);
 console.log('');
+
+if(args.length > 0) {
+  console.log('Testing methods...'.bold.green);
+  var test_driver = new CDBDriver('http://'+args[0]+':'+args[1]+'@localhost:5984/');
+
+  console.log('Invoking "info" method:'.yellow);
+  var info = test_driver.info();
+  console.log(info);
+}
 
 console.log('Done testing.');
