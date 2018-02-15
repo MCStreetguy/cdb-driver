@@ -1,46 +1,97 @@
-const colors = require('colors');
 const CDBDriver = require('../app/main.js');
 
-const args = process.argv.slice(2);
+test('construction using config object without auth',() => {
+  const driver = new CDBDriver({
+    host: 'http://localhost:5984/'
+  })
 
-console.log('Invoking main test script...'.underline.bold.red);
+  expect(driver).toBeInstanceOf(CDBDriver);
+  expect(driver).toHaveProperty('_auth',false);
+  expect(driver).toHaveProperty('host','http://localhost:5984/');
+})
 
-console.log('Testing construction...'.bold.green);
+test('construction using config object with auth',() => {
+  const driver = new CDBDriver({
+    host: 'http://localhost:5984/',
+    user: 'admin',
+    pass: 'p455w0rd'
+  })
 
-// Config object, no auth
-console.log('Creating new CDBDriver using config object without authentication:'.yellow);
-var driver_object_noauth = new CDBDriver({
-  host: 'http://localhost/',
-  port: 5984
-});
-console.log(driver_object_noauth);
-console.log('');
+  expect(driver).toBeInstanceOf(CDBDriver);
+  expect(driver).toHaveProperty('_auth',true);
+  expect(driver).toHaveProperty('host','http://localhost:5984/');
+  expect(driver).toHaveProperty('user','admin');
+  expect(driver).toHaveProperty('pass','p455w0rd');
+})
 
-// Config object + auth
-console.log('Creating new CDBDriver using config object with authentication:'.yellow);
-var driver_object_auth = new CDBDriver({
-  host: 'http://localhost/',
-  port: 5984,
+test('construction using config string without auth',() => {
+  const driver = new CDBDriver('http://localhost:5984/');
+
+  expect(driver).toBeInstanceOf(CDBDriver);
+  expect(driver).toHaveProperty('_auth',false);
+  expect(driver).toHaveProperty('host','http://localhost:5984/');
+})
+
+test('construction using config string with auth',() => {
+  const driver = new CDBDriver('http://admin:p455w0rd@localhost:5984/');
+
+  expect(driver).toBeInstanceOf(CDBDriver);
+  expect(driver).toHaveProperty('_auth',true);
+  expect(driver).toHaveProperty('host','http://localhost:5984/');
+  expect(driver).toHaveProperty('user','admin');
+  expect(driver).toHaveProperty('pass','p455w0rd');
+})
+
+const testing_driver = new CDBDriver({
+  host: 'http://localhost:5984/',
   user: 'testuser',
-  pass: 'myn1c3p455'
-});
-console.log(driver_object_auth);
-console.log('');
+  pass: 'testpass'
+})
 
-// Config string, no auth
-console.log('Creating new CDBDriver using config string without authentication:'.yellow);
-var driver_string_noauth = new CDBDriver(
-  'http://localhost:5984/'
-);
-console.log(driver_string_noauth);
-console.log('');
+test('info method (sync)',() => {
+  var info = testing_driver.info();
 
-// Config string + auth
-console.log('Creating new CDBDriver using config string with authentication:'.yellow);
-var driver_string_auth = new CDBDriver(
-  'http://testuser:myn1c3p455@localhost:5984/'
-);
-console.log(driver_string_auth);
-console.log('');
+  expect(info).toHaveProperty('state',200);
+  expect(info).toHaveProperty('response.couchdb','Welcome');
+  expect(info).toHaveProperty('response.version');
+  expect(info).toHaveProperty('response.vendor');
+})
 
-console.log('Done testing.\n'.underline.bold.green);
+test('info method (async)',done => {
+  function callback(result) {
+    expect(result).toHaveProperty('state',200);
+    expect(result).toHaveProperty('response.couchdb','Welcome');
+    expect(result).toHaveProperty('response.version');
+    expect(result).toHaveProperty('response.vendor');
+
+    done();
+  }
+
+  testing_driver.info(callback);
+})
+
+test('allDbs method (sync)',() => {
+  var dbs = testing_driver.allDbs();
+
+  expect(dbs).toHaveProperty('state',200);
+  expect(dbs.response).toContain('_users');
+  expect(dbs.response).toContain('timekeeper_projects');
+  expect(dbs.response).toContain('timekeeper_customers');
+  expect(dbs.response).toContain('timekeeper_recordings');
+})
+
+test('allDbs method (async)',done => {
+  function callback(result) {
+    expect(result).toHaveProperty('state',200);
+    expect(result.response).toContain('_users');
+    expect(result.response).toContain('timekeeper_projects');
+    expect(result.response).toContain('timekeeper_customers');
+    expect(result.response).toContain('timekeeper_recordings');
+
+    done();
+  }
+
+  testing_driver.allDbs(callback);
+})
+
+// test('getDb method (sync)')

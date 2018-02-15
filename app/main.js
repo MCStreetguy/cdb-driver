@@ -51,6 +51,14 @@ class CDBDriver {
       this._mode = 'curl';
       throw new Error('CDBDriver currently not supports CURL mode!');
     }
+
+    var res = this.info();
+    if(parseInt(res.version) < 2) {
+      // throw new Error('Invalid CouchDB Version! Required version >= 2, found '+res.version+'.');
+      this.legacy = true;
+    } else {
+      this.legacy = false;
+    }
   }
 
   _getAuthHeader() {
