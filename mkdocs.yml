@@ -1,0 +1,5 @@
+site_name: CDBDriver
+theme: readthedocs
+pages:
+  - CDBDriver: index.md
+  - Reference: reference.md
