@@ -563,7 +563,7 @@ class CDBDriver {
 
         return {
           state: req.status,
-          resposne: response
+          response: response
         }
       }
     } else {}
@@ -626,7 +626,7 @@ class CDBDriver {
 
         return {
           state: req.status,
-          resposne: response
+          response: response
         }
       }
     } else {}
@@ -637,6 +637,12 @@ class CDBDriver {
       throw new Error('CDBDriver.storeUser() is missing required argument: username!');
     } else if(!_isset(password,'string')) {
       throw new Error('CDBDriver.storeUser() is missing required argument: password!');
+    }
+
+    if(this.legacy) {
+      var target = this.host + '_config/admins/' + username;
+    } else {
+      var target = this.host + '_node/_local/_config/admins/' + username;
     }
 
     if(this._mode == 'xhr') {
@@ -655,12 +661,12 @@ class CDBDriver {
           })
         })
 
-        req.open('PUT',this.host + '_config/admins/' + username);
+        req.open('PUT',target);
         if(this._auth) this._setAuthHeader(req);
         req.setRequestHeader('Content-Type','application/json');
         req.send('"' + password + '"');
       } else {
-        req.open('PUT',this.host + '_config/admins/' + username,false);
+        req.open('PUT',target,false);
         if(this._auth) this._setAuthHeader(req);
         req.setRequestHeader('Content-Type','application/json');
         req.send('"' + password + '"');
@@ -673,7 +679,7 @@ class CDBDriver {
 
         return {
           state: req.status,
-          resposne: response
+          response: response
         }
       }
     } else {}
