@@ -568,6 +568,116 @@ class CDBDriver {
       }
     } else {}
   }
+
+  storeUser(options,callback) {
+    if(!_isset(options.username,'string')) {
+      throw new Error('CDBDriver.storeUser() is missing required argument: username!');
+    } else if(!_isset(options.password,'string')) {
+      throw new Error('CDBDriver.storeUser() is missing required argument: password!');
+    }
+
+    var data = {
+      _id: 'org.couchdb.user:' + options.username,
+      name: options.username,
+      roles: (_isset(options.roles,'object') ? options.roles : []),
+      type: 'user',
+      password: options.password
+    }
+
+    if(_isset(options.additionals,'object')) {
+      for (var key in options.additionals) {
+        if(options.additionals.hasOwnProperty(key) && !data.hasOwnProperty(key)) {
+          data[key] = options.additionals[key];
+        }
+      }
+    }
+
+    if(this._mode == 'xhr') {
+      var req = new XMLHttpRequest();
+      if(_isset(callback,'function')) {
+        req.addEventListener('load',function (event) {
+          try {
+            var response = JSON.parse(req.response);
+          } catch (e) {
+            var response = req.response;
+          }
+
+          callback({
+            state: req.status,
+            response: response
+          })
+        })
+
+        req.open('PUT',this.host + '_users/' + data._id);
+        if(this._auth) this._setAuthHeader(req);
+        req.setRequestHeader('Content-Type','application/json');
+        req.send(JSON.stringify(data));
+      } else {
+        req.open('PUT',this.host + '_users/' + data._id,false);
+        if(this._auth) this._setAuthHeader(req);
+        req.setRequestHeader('Content-Type','application/json');
+        req.send(JSON.stringify(data));
+
+        try {
+          var response = JSON.parse(req.response);
+        } catch (e) {
+          var response = req.response;
+        }
+
+        return {
+          state: req.status,
+          resposne: response
+        }
+      }
+    } else {}
+  }
+
+  storeAdmin(username,password,callback) {
+    if(!_isset(username,'string')) {
+      throw new Error('CDBDriver.storeUser() is missing required argument: username!');
+    } else if(!_isset(password,'string')) {
+      throw new Error('CDBDriver.storeUser() is missing required argument: password!');
+    }
+
+    if(this._mode == 'xhr') {
+      var req = new XMLHttpRequest();
+      if(_isset(callback,'function')) {
+        req.addEventListener('load',function (event) {
+          try {
+            var response = JSON.parse(req.response);
+          } catch (e) {
+            var response = req.response;
+          }
+
+          callback({
+            state: req.status,
+            response: response
+          })
+        })
+
+        req.open('PUT',this.host + '_config/admins/' + username);
+        if(this._auth) this._setAuthHeader(req);
+        req.setRequestHeader('Content-Type','application/json');
+        req.send('"' + password + '"');
+      } else {
+        req.open('PUT',this.host + '_config/admins/' + username,false);
+        if(this._auth) this._setAuthHeader(req);
+        req.setRequestHeader('Content-Type','application/json');
+        req.send('"' + password + '"');
+
+        try {
+          var response = JSON.parse(req.response);
+        } catch (e) {
+          var response = req.response;
+        }
+
+        return {
+          state: req.status,
+          resposne: response
+        }
+      }
+    } else {}
+  }
 }
 
 try {

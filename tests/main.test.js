@@ -93,5 +93,3 @@ test('allDbs method (async)',done => {
 
   testing_driver.allDbs(callback);
 })
-
-// test('getDb method (sync)')
