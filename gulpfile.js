@@ -3,22 +3,27 @@ const gulp = require('gulp'),
       babel = require('gulp-babel'),
       uglify = require('gulp-uglify'),
       rename = require('gulp-rename'),
-      notify = require('gulp-notify');
+      notify = require('gulp-notify'),
+      browserify = require('browserify'),
+      fs = require('fs');
 
 gulp.task('build', function (finish) {
-  pump([
-    gulp.src('app/main.js'),
-    babel({
-      presets: ['env']
-    }),
-    uglify(),
-    rename('main.min.js'),
-    gulp.dest('dist/'),
-    notify({
-      title: 'Gulp',
-      message: 'Script file has been compiled.'
-    })
-  ],finish);
+  browserify({
+    entries: './app/main.js',
+    debug: true
+  })
+  .transform('babelify', {presets: ['env', ['minify',{
+    mangle: false
+  }]]})
+  .bundle()
+  .pipe(fs.createWriteStream('dist/main.min.js'))
+
+  notify({
+    title: 'Gulp',
+    message: 'Script file has been compiled.'
+  })
+
+  finish()
 })
 
 gulp.task('default', ['build'], function () {

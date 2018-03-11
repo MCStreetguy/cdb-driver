@@ -7,6 +7,7 @@
 ![NPM License](https://img.shields.io/npm/l/cdb-driver.svg)
 [![GitHub issues](https://img.shields.io/github/issues/mcstreetguy/cdb-driver.svg)](https://github.com/MCStreetguy/cdb-driver/issues)
 ![GitHub last commit](https://img.shields.io/github/last-commit/mcstreetguy/cdb-driver.svg)
+[![Documentation Status](https://readthedocs.org/projects/cdbdriver/badge/?version=latest)](http://cdbdriver.readthedocs.io/en/latest/?badge=latest)
 
 CouchDB seems the perfect database for JavaScript applications since it uses
 JSON as data structure. On first sight, this makes it really easy to interact

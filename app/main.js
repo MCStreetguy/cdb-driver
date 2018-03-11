@@ -52,7 +52,7 @@ class CDBDriver {
       throw new Error('CDBDriver currently not supports CURL mode!');
     }
 
-    var res = this.info();
+    var res = this.info().response;
     if(parseInt(res.version) < 2) {
       // throw new Error('Invalid CouchDB Version! Required version >= 2, found '+res.version+'.');
       this.legacy = true;
