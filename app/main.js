@@ -688,4 +688,6 @@ class CDBDriver {
 
 try {
   module.exports = CDBDriver;
-} catch(e) {}
+} catch(e) {
+  window.CDBDriver = CDBDriver;
+}
