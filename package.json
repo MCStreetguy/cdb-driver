@@ -1,6 +1,6 @@
 {
   "name": "cdb-driver",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "A driver library for connecting to a CouchDB instance through JavaScript.",
   "main": "app/module.js",
   "scripts": {
