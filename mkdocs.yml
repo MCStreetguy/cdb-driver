@@ -4,6 +4,7 @@ repo_url: https://github.com/MCStreetguy/cdb-driver
 pages:
   - CDBDriver: index.md
   - Reference: reference.md
+  - Further Information: misc.md
 markdown_extensions:
   - admonition
   - codehilite

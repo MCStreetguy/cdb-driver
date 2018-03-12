@@ -73,4 +73,7 @@ var driver = new CDBDriver('http://admin:p4ssw0rd@localhost:5984/');
 ```
 
 The URL string gets parsed internally to a configuration object, thus both
-methdos result in the same instance at the end.
+methods result in the same instance at the end.
+
+## Here you go
+That's all, you're up and running. Continue with the [Reference page](/reference) to get known to the available methods.
