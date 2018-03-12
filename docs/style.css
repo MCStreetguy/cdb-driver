@@ -1,0 +1,28 @@
+.codehilite > pre {
+  background: rgba(0,0,0,0.05);
+  padding: 10px;
+  overflow-x: auto;
+}
+
+.admonition {
+  margin: 40px -15px 30px;
+  background: rgba(0,0,0,0.05);
+  padding: 0px !important;
+}
+
+.admonition > .admonition-title {
+  max-width: 100%;
+  margin: 0;
+}
+
+.admonition > p:not(.admonition-title) {
+  padding: 10px;
+}
+
+code {
+  font-size: 90%;
+}
+
+nav li + ul > li > a {
+  padding-left: 50px !important;
+}

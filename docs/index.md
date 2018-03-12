@@ -1,7 +1,8 @@
 title: CDBDriver
 description: A driver library for connecting to a CouchDB instance through JavaScript.
 
-# CouchDB Driver
+<h1 id="couchdb-driver">CouchDB Driver</h1>
+
 **A driver library for connecting to a CouchDB instance through JavaScript.**
 
 [![GitHub stars](https://img.shields.io/github/stars/mcstreetguy/cdb-driver.svg?style=social&logo=github&label=Stars)](https://github.com/MCStreetguy/cdb-driver)
@@ -51,7 +52,7 @@ const CDBDriver = require('cdb-driver')
 
 !!! info
     When using this library within a webpage directly instead of Node.js, you can leave this step out.
-    The CDBDriver class will be registered on the window object and is available for all following scripts.
+    The CDBDriver class will be registered on the window object and is available for all following scripts.     
 
 
 Then initiate a new instance through one of the following methods.

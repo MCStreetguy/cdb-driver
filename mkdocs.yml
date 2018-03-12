@@ -1,5 +1,6 @@
 site_name: CouchDB Driver Library
-theme: material
+theme: readthedocs
+# theme: material
 repo_url: https://github.com/MCStreetguy/cdb-driver
 copyright: (c) 2018, Maximilian Schmidt
 pages:
@@ -12,3 +13,5 @@ markdown_extensions:
   - meta
   - toc:
       permalink: true
+extra_css:
+  - style.css
