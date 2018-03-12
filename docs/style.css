@@ -17,6 +17,7 @@
 
 .admonition > p:not(.admonition-title) {
   padding: 10px;
+  font-size: 93%;
 }
 
 code {
