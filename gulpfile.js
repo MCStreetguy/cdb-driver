@@ -9,7 +9,7 @@ const gulp = require('gulp'),
 
 gulp.task('build', function () {
   browserify({
-    entries: './app/main.js',
+    entries: './app/browser.js',
     debug: true
   }).transform('babelify', {presets: ['env', ['minify',{
     mangle: false
@@ -17,7 +17,7 @@ gulp.task('build', function () {
 
   notify({
     title: 'Gulp',
-    message: 'Script file has been compiled.'
+    message: 'Script has been compiled for Browsers.'
   })
 })
 

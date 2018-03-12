@@ -1,8 +1,7 @@
-// const ChildProcess = require('child_process');
 const btoa = require('btoa');
 const _isset = require('isset-helper');
 
-class CDBDriver {
+window.CDBDriver = class CDBDriver {
 
   constructor(config) {
     if(_isset(config,'object')) {
@@ -684,10 +683,4 @@ class CDBDriver {
       }
     } else {}
   }
-}
-
-try {
-  module.exports = CDBDriver;
-} catch(e) {
-  window.CDBDriver = CDBDriver;
 }

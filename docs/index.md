@@ -1,4 +1,9 @@
-# CDBDriver
+title: CDBDriver
+description: A driver library for connecting to a CouchDB instance through JavaScript.
+path: app/
+source: module.js
+
+# CouchDB Driver
 **A driver library for connecting to a CouchDB instance through JavaScript.**
 
 [![GitHub stars](https://img.shields.io/github/stars/mcstreetguy/cdb-driver.svg?style=social&logo=github&label=Stars)](https://github.com/MCStreetguy/cdb-driver)
@@ -20,7 +25,7 @@ be used in production environments, even if its provided by this library.
 ## Installation
 **Via package manager:**
 
-```bash
+``` bash
 $ npm install --save cdb-driver
 # or
 $ yarn add cdb-driver
@@ -28,10 +33,10 @@ $ yarn add cdb-driver
 
 **Via CDN / JSDelivr:**
 
-```bash
-https://cdn.jsdelivr.net/npm/cdb-driver@[version]/dist/main.min.js
-# or
+``` bash
 https://cdn.jsdelivr.net/npm/cdb-driver@[version]
+# or
+https://cdn.jsdelivr.net/npm/cdb-driver@[version]/dist/main.min.js
 ```
 Replace [version] with a semver-string just as used in npm.
 
@@ -42,14 +47,20 @@ and including it however you like (whyever you should do this).
 
 ## Usage
 First require the module:
-```javascript
+``` javascript
 const CDBDriver = require('cdb-driver')
 ```
+<br>
 
-Then initiate a new instance through one of the following methods:
+!!! info
+    When using this library within a webpage directly instead of Node.js, you can leave this step out.
+    The CDBDriver class will be registered on the window object and is available for all following scripts.
+
+<br>
+Then initiate a new instance through one of the following methods.
 
 **Using configuration object:**
-```javascript
+``` javascript
 var driver = new CDBDriver({
   host: 'http://localhost:5984/',
   user: 'admin',
@@ -60,7 +71,7 @@ var driver = new CDBDriver({
 The `user` and `pass` keys can be omitted, if no authentication is needed.
 
 **Using configuration string:**
-```javascript
+``` javascript
 var driver = new CDBDriver('http://admin:p4ssw0rd@localhost:5984/');
 ```
 

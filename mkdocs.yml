@@ -1,5 +1,12 @@
 site_name: CDBDriver
 theme: readthedocs
+repo_url: https://github.com/MCStreetguy/cdb-driver
 pages:
   - CDBDriver: index.md
   - Reference: reference.md
+markdown_extensions:
+  - admonition
+  - codehilite
+  - meta
+  - toc:
+      permalink: true
