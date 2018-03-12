@@ -43,7 +43,7 @@ Accessing the root of a CouchDB instance returns meta information about the inst
 |---------:|:----:|:--------:|:------------|
 | `callback` | function | no | [_Callback_](#methods) |
 
-??? abstract "Developers Annotation"
+!!! abstract "Developers Annotation"
     _This method is perfect for testing the connection to the database.    
     In addition this can also be used to split further requests from the main process by providing a callback function.
     Within that callback you can perform synchroneous requests as you want without impacting the users performance._
@@ -167,7 +167,7 @@ Instead of single options, this method only accepts a plain object for configura
 }
 ```
 
-??? abstract "Developers Annotation"
+!!! abstract "Developers Annotation"
     There's a whole bunch of background information provided in the [official documentation of CouchDB](http://docs.couchdb.org/en/latest/intro/security.html).    
     Head up there for further reading on what is happening within this method and on the server-side.
 
