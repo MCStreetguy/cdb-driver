@@ -1,5 +1,5 @@
-site_name: CDBDriver
-theme: readthedocs
+site_name: CouchDB Driver Library
+theme: material
 repo_url: https://github.com/MCStreetguy/cdb-driver
 pages:
   - CDBDriver: index.md
@@ -10,3 +10,19 @@ markdown_extensions:
   - meta
   - toc:
       permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
