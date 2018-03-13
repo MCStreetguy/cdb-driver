@@ -2,7 +2,7 @@
   "name": "cdb-driver",
   "version": "0.3.7",
   "description": "A driver library for connecting to a CouchDB instance through JavaScript.",
-  "main": "app/module.js",
+  "main": "dist/bare/module.js",
   "scripts": {
     "test": "jest"
   },
@@ -24,6 +24,7 @@
     "browserify": "^16.1.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
+    "gulp-footer": "^2.0.1",
     "gulp-notify": "^3.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0",

@@ -1,7 +1,7 @@
 const btoa = require('btoa');
 const _isset = require('isset-helper');
 
-window.CDBDriver = class CDBDriver {
+const cdbd = class CDBDriver {
 
   constructor(config) {
     if(_isset(config,'object')) {
@@ -684,3 +684,4 @@ window.CDBDriver = class CDBDriver {
     } else {}
   }
 }
+window.CDBDriver = cdbd;

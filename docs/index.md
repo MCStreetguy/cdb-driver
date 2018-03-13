@@ -32,16 +32,14 @@ $ yarn add cdb-driver
 
 **Via CDN / JSDelivr:**
 
-``` bash
-https://cdn.jsdelivr.net/npm/cdb-driver@[version]
-# or
-https://cdn.jsdelivr.net/npm/cdb-driver@[version]/dist/main.min.js
+``` html
+<script src="https://cdn.jsdelivr.net/npm/cdb-driver@[version]/dist/min/main.min.js" charset="utf-8"></script>
 ```
 Replace [version] with a semver-string just as used in npm.
 
 **Manually:**
 
-You can also install it by [downloading the minified source](https://raw.githubusercontent.com/MCStreetguy/cdb-driver/master/dist/main.min.js)
+You can also install it by [downloading the minified source](https://raw.githubusercontent.com/MCStreetguy/cdb-driver/master/dist/min/main.min.js)
 and including it however you like (whyever you should do this).
 
 ## Usage
