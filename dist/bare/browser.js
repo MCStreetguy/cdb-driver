@@ -65,6 +65,7 @@ const cdbd = class CDBDriver {
   }
 
   _setAuthHeader(request) {
+    request.withCredentials = true;
     request.setRequestHeader('Authorization',this._getAuthHeader());
   }
 
