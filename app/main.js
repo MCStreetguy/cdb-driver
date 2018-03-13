@@ -1,7 +1,7 @@
 const btoa = require('btoa');
 const _isset = require('isset-helper');
 
-const cdbd = class CDBDriver {
+module.exports = class CDBDriver {
 
   constructor(config) {
     if(_isset(config,'object')) {
