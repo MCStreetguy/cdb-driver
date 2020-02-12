@@ -8,7 +8,10 @@ gulp.task('build', (finish) => {
   pump([
     gulp.src('app/browser.js'),
     rename('main.min.js'),
-    babel({presets: ['env', 'minify']}),
+    babel({presets: [
+      '@babel/env',
+      'minify'
+    ]}),
     gulp.dest('dist/'),
     notify({
       title: 'Gulp',
@@ -17,6 +20,6 @@ gulp.task('build', (finish) => {
   ],finish)
 })
 
-gulp.task('default', ['build'], function () {
-  gulp.watch('app/main.js',['build']);
-})
+gulp.task('default', gulp.series('build', function () {
+  gulp.watch('app/main.js', gulp.series('build'));
+}))

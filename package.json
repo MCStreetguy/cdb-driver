@@ -17,18 +17,18 @@
   },
   "homepage": "https://github.com/MCStreetguy/cdb-driver#readme",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-minify": "^0.3.0",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.1",
+    "@babel/core": "^7.8.0",
+    "@babel/preset-env": "^7.8.0",
+    "babel-preset-minify": "^0.5.0",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
     "gulp-notify": "^3.2.0",
-    "gulp-rename": "^1.2.2",
-    "jest": "^22.3.0",
+    "gulp-rename": "^2.0.0",
+    "jest": "^25.0.0",
     "pump": "^3.0.0"
   },
   "dependencies": {
-    "btoa": "^1.1.2",
-    "isset-helper": "^1.0.0"
+    "btoa": "^1.2.1",
+    "isset-helper": "^2.0.0"
   }
 }
